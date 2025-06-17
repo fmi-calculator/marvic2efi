@@ -53,7 +53,7 @@ out_nc <- ncdf4::nc_open(raw_output_file)
 
 # read example variables, here NEE, GPP, NPP
 out_nee <- ncdf4::ncvar_get(out_nc, "NEE")
-out_gpp <- ncdf4::ncvar_get(out_nc, "GPP")
+out_gpp <- ncdf4::ncvar_get(out_nc, "GPP") # in this example out_gpp is an "n_time x n_ensembles" matrix
 out_ar  <- ncdf4::ncvar_get(out_nc, "AutoResp")
 out_npp <- out_gpp - out_ar
 ```
