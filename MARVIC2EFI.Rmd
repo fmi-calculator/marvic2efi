@@ -110,6 +110,24 @@ df_combined <- reshape2::melt(output_storage,varnames=c("datetime","parameter","
   right_join(tibble(datetime=datetimes,data_assimilation = data_assimilation, forecast = forecast))
 ```
 
+Here df_combined should look something like this:
+```
+> head(df_combined,n=10)
+# A tibble: 10 × 7
+   datetime   parameter obs_flag variable                      prediction data_assimilation forecast
+   <date>         <int>    <int> <chr>                              <dbl>             <int>    <int>
+ 1 2018-01-01         1        1 net_ecosystem_exchange     0.00000000843                 0        0
+ 2 2018-01-01         1        1 gross_primary_productivity 0                             0        0
+ 3 2018-01-01         1        1 net_primary_productivity   0                             0        0
+ 4 2018-01-02         1        1 net_ecosystem_exchange     0.00000000885                 0        0
+ 5 2018-01-02         1        1 gross_primary_productivity 0                             0        0
+ 6 2018-01-02         1        1 net_primary_productivity   0                             0        0
+ 7 2018-01-03         1        1 net_ecosystem_exchange     0.00000000929                 0        0
+ 8 2018-01-03         1        1 gross_primary_productivity 0                             0        0
+ 9 2018-01-03         1        1 net_primary_productivity   0                             0        0
+10 2018-01-04         1        1 net_ecosystem_exchange     0.00000000928                 0        0
+```
+
 ## Write EFI csv
 
 ```{r writeout, eval=FALSE}
