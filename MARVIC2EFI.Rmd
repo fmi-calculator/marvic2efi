@@ -9,7 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## MARVIC models with EFI standards
+# MARVIC models with EFI standards
 
 EFI standards are concerned with two main files:  
 
@@ -40,6 +40,8 @@ library(reshape2)
 # install.packages("ncdf4")
 # library(ncdf4)
 ```
+
+# Producing the model output file
 
 ## Read your model outputs
 
@@ -151,7 +153,9 @@ arrow::write_dataset(
 ```
 
 
-## Prepare standard Metadata
+# Producing the standard Metadata file
+
+## Prepare dataset metadata
 
 These functions use R EML/emld packages.
 
@@ -236,13 +240,23 @@ dataset = eml$dataset(
 )
 ```
 
-Additional metadata:
+## Prepare additional metadata
+
+EFI standards has additional metadata tags to store forecast specific information for basic elements and model structure & uncertainty:
+
+- `target_id`: this is a unique identifier (e.g., URL or DOI) that links to data or metadata about what the forecast/prediction is being scored against
+
+- `model_version`: This identifier should update when the model is updated or when the underlying modeling **workflow** is updated. EFI recommends issuing DOIs for different model/workflow versions, and thus, this is a natural choice for a model_version.
+
+- `iteration_id`: represents a unique ID for each run. Examples might be a start time or database ID.
+
+
 ```{r additional, eval=FALSE}
 ## Global attributes
-target_id <- "YOUR_TARGET_ID" # this is a unique identifier (e.g., URL or DOI) that links to data or metadata about what the forecast/prediction is being scored against
+target_id <- "YOUR_TARGET_ID" 
 model_name <- "YOUR_MODEL_NAME"
 model_version <- "YOUR_MODEL_VERSION"
-iteration_id <- "20180101T000000" #`iteration_id` represents a unique ID for each run. Examples might be a start time or database ID.
+iteration_id <- "20180101T000000" # UPDATE ACCORDINGLY
 
 # Additional metadata
 additionalMetadata <- eml$additionalMetadata(
