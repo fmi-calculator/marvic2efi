@@ -141,16 +141,22 @@ csv_filename <- ".../FI-Qvd_SPY-C_2018-2023_EFIstandard.csv"
 write.csv(df_combined, 
           file = csv_filename)
 
+# OPTIONAL
 ### convert to parquet format
-# this is preliminary at the moment, we are discussing the S3 folder hierarchy
-# YOUR PATH HERE
-parquet_path <- ".../"
+# this is preliminary at the moment
+# included here more as a discussion point
+# FMI can convert your csv into parquet
+# we are currently discussing the S3 folder hierarchy 
+# use cases to be discussed
 
-arrow::write_dataset(
-  df_combined,
-  parquet_path,
-  compression = "snappy"
-)
+# YOUR PATH HERE
+# parquet_path <- ".../"
+
+# arrow::write_dataset(
+#   df_combined,
+#   parquet_path,
+#   compression = "snappy"
+# s)
 ```
 
 
