@@ -1,0 +1,16 @@
+[project]
+name = "marvic2efi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "xarray",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "netCDF4",
+    "dicttoxml",
+    "pyarrow",
+    "xmltodict",
+]
