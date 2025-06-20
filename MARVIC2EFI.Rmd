@@ -162,6 +162,10 @@ write.csv(df_combined,
 
 # Producing the standard Metadata file
 
+EFI metadata convention builds on the Ecological Metadata Language (EML) metadata standard. EML has a long development history, is interconvertible with many other standards, and has built-in extensibility.
+
+EFI dataset metadata convention makes some core components of the base EML standard required or recommended. Many optional elements also exist as part of the EML schema (https://eml.ecoinformatics.org/schema/). The appendices of the EFI standards publication (https://doi.org/10.1002/ecs2.4686) includes the descriptions of these tags in more detail. We made these pdfs available on MARVIC share point also. 
+
 ## Prepare dataset metadata
 
 These functions use R EML/emld packages.
